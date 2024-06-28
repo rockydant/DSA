@@ -37,6 +37,11 @@ func (ll *LinkedList) Print() {
 }
 
 func (ll *LinkedList) Remove(index int) {
+	if ll.head == nil {
+		fmt.Println("Linked list is empty")
+		return
+	}
+
 	if index == 0 {
 		ll.head = ll.head.next
 		return
@@ -98,12 +103,12 @@ func main() {
 	ll.Add(5)
 	ll.Print()
 	fmt.Println("Length: ", ll.Length())
+	fmt.Println("------------")
 	ll.Remove(0)
-	ll.Remove(1)
-	ll.Remove(2)
-	ll.Remove(3)
-	ll.Remove(4)
-	ll.Remove(5)
+	// ll.Remove(1)
+	// ll.Remove(2)
+	// ll.Remove(3)
+	// ll.Remove(4)
 	ll.Print()
 	fmt.Println("Length: ", ll.Length())
 	ll.Clear()
