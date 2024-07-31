@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
 	data  int
@@ -89,6 +91,24 @@ func (bst *BinarySearchTree) PostOrder(node *Node) {
 	}
 }
 
+// Print tree
+func (bst *BinarySearchTree) Print(node *Node) {
+	if bst.root == nil {
+		return
+	}
+
+	fmt.Println("-----")
+	fmt.Println(node.data)
+	fmt.Println("-----")
+	if node.left != nil {
+		bst.Print(node.left)
+	}
+
+	if node.right != nil {
+		bst.Print(node.right)
+	}
+}
+
 func main() {
 	bst := BinarySearchTree{}
 	bst.Insert(10)
@@ -99,11 +119,13 @@ func main() {
 	bst.Insert(4)
 	bst.Insert(6)
 	fmt.Println()
-	bst.InOrder(bst.root)
-	fmt.Println()
-	bst.PreOrder(bst.root)
-	fmt.Println()
-	fmt.Println(bst.Search(5))
-	fmt.Println()
-	bst.PostOrder(bst.root)
+
+	bst.Print(bst.root)
+	// bst.InOrder(bst.root)
+	// fmt.Println()
+	// bst.PreOrder(bst.root)
+	// fmt.Println()
+	// fmt.Println(bst.Search(5))
+	// fmt.Println()
+	// bst.PostOrder(bst.root)
 }
